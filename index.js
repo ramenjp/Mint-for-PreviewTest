@@ -2,8 +2,8 @@ const ethers = require("ethers");
 const abi = require("./abi.json");
 require("dotenv").config();
 
-const contractAddress =
-  "0x8a235ed12064cb1328d93896bd65b9c3dc8d7c8fdbc13df49dd006c03aac7290;";
+const contractAddress = "0x7510ac404FD204a80D838d5d33a9f061780D57f2";
+const network = "rinkeby";
 
 // 環境変数
 const privateKey = process.env.PRIVATE_KEY;
@@ -16,11 +16,10 @@ const wallet = new ethers.Wallet(privateKey);
 const address = wallet.address;
 
 const infuraProvider = new ethers.providers.InfuraProvider(
-  "rinkeby",
+  network,
   infuraApiKey
 );
 
-// const signer = new ethers.Wallet(privateKey, provider);
 const signer = wallet.connect(infuraProvider);
 
 // mint
